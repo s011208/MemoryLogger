@@ -35,7 +35,7 @@ public class LogHelper {
 
     private static final int DEFAULT_LOG_FILE_COUNT = 5;
 
-    private static final int DEFAULT_LOG_FILE_SIZE = 1024 * 1024;
+    private static final int DEFAULT_LOG_FILE_SIZE = 5 * 1024;
 
     private static LogHelper sLogHelper;
 
@@ -80,7 +80,7 @@ public class LogHelper {
         final File logDir = Utilities.getLogDirectory(mContext);
         if (logDir != null) {
             try {
-                FileHandler mFileHandler = new FileHandler(logDir.getPath() + File.separator + "%g" + processName + ".txt",
+                FileHandler mFileHandler = new FileHandler(logDir.getPath() + File.separator + processName + Utilities.FILE_SPLITTER + "%g." + Utilities.FILE_EXTENSION_NAME,
                         mLogFileSize, mMaximumLogFileCount, true);
                 mFileHandler.setFormatter(new Formatter() {
                     @Override

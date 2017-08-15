@@ -41,9 +41,9 @@ public class MemoryInfoSaver {
             Context context = mContext.get();
             if (context == null) return null;
             ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            Debug.MemoryInfo[] memoryInformations = activityManager.getProcessMemoryInfo(new int[]{android.os.Process.myPid()});
-            if (memoryInformations == null || memoryInformations.length == 0) return null;
-            MemoryInfoAdapter memoryInfoAdapter = new MemoryInfoAdapter(memoryInformations[0]);
+            Debug.MemoryInfo[] memoryInformation = activityManager.getProcessMemoryInfo(new int[]{android.os.Process.myPid()});
+            if (memoryInformation == null || memoryInformation.length == 0) return null;
+            MemoryInfoAdapter memoryInfoAdapter = new MemoryInfoAdapter(memoryInformation[0]);
             if (DEBUG) Log.v(TAG, memoryInfoAdapter.toString());
             Logger logger = mLogger.get();
             if (logger == null) return null;

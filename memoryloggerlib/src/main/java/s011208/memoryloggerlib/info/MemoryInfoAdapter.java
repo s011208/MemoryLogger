@@ -92,4 +92,8 @@ public class MemoryInfoAdapter {
         }
         return rtn;
     }
+
+    public long getTime() throws JSONException {
+        return mJsonObject.getLong(TIME);
+    }
 }
